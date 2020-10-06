@@ -1,5 +1,5 @@
-Run renew_token.py in screen
-and run main.py
+Run `renew_token.py` in screen
+and then run `main.py`
 
 Need config nginx for ssl and reverse proxy.
 
