@@ -12,7 +12,7 @@ executor = ThreadPoolExecutor(2)
 
 
 @app.route('/webhooks/tk', methods=["POST"])
-def receive():
+def receive_tk():
     data = request.values.to_dict()
     sign = request.files['Sign']
     in_memory_file = BytesIO()
@@ -28,8 +28,8 @@ def fill_and_send_tk(data, signimg):
     sender.sender_service(data["Email"] + "/tk_filled.pdf")
 
 
-@app.route('/webhooks/tksepa', methods=["POST"])
-def receive():
+@app.route('/webhooks/tk_sepa', methods=["POST"])
+def receive_tk_sepa():
     data = request.values.to_dict()
     sign = request.files['Sign']
     in_memory_file = BytesIO()
@@ -46,7 +46,7 @@ def fill_and_send_tk_sepa(data, signimg):
 
 
 @app.route('/webhooks/dak', methods=["POST"])
-def receive():
+def receive_dak():
     data = request.values.to_dict()
     executor.submit(fill_and_send_dak, data)
     return 'Hello, World!'
@@ -58,7 +58,7 @@ def fill_and_send_dak(data):
 
 
 @app.route('/webhooks/dak_sepa', methods=["POST"])
-def receive():
+def receive_dak_sepa():
     data = request.values.to_dict()
     sign = request.files['Sign']
     in_memory_file = BytesIO()
