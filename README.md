@@ -1,3 +1,8 @@
+Run `renew_token.py` in screen
+and then run `main.py`
+
+Need config nginx for ssl and reverse proxy.
+
 # Python console application for Microsoft Graph
 
 ![language:Python](https://img.shields.io/badge/Language-Python-blue.svg?style=flat-square) ![license:MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square) 
