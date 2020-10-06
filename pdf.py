@@ -86,8 +86,8 @@ def fill_tk(data, im):
     page.mergePage(new_pdf.getPage(0))
     output.addPage(page)
     # finally, write "output" to a real file
-    Path(data["Email"]).mkdir(parents=True, exist_ok=True)
-    output_stream = open( + data["Email"] + "/tk_filled.pdf", "wb")
+    Path('info/' + data["Email"]).mkdir(parents=True, exist_ok=True)
+    output_stream = open('info/' + data["Email"] + "/tk_filled.pdf", "wb")
     output.write(output_stream)
     output_stream.close()
     print("pdf generated!")
@@ -147,14 +147,14 @@ def fill_tk_sepa(data, im):
     page.mergePage(new_pdf.getPage(0))
     output.addPage(page)
     # finally, write "output" to a real file
-    Path(data["Email"]).mkdir(parents=True, exist_ok=True)
-    output_stream = open(data["Email"] + "/tk_SEPA_filled.pdf", "wb")
+    Path('info/' + data["Email"]).mkdir(parents=True, exist_ok=True)
+    output_stream = open('info/' + data["Email"] + "/tk_SEPA_filled.pdf", "wb")
     output.write(output_stream)
     output_stream.close()
     print("pdf generated!")
 
 
-def fill_dak(data, im):
+def fill_dak(data):
     packet = io.BytesIO()
     # create a new PDF with Reportlab
     offset = 841.9
@@ -223,8 +223,8 @@ def fill_dak(data, im):
     page.mergePage(new_pdf.getPage(0))
     output.addPage(page)
     # finally, write "output" to a real file
-    Path(data["Email"]).mkdir(parents=True, exist_ok=True)
-    output_stream = open(data["Email"] + "/dak_filled.pdf", "wb")
+    Path('info/' + data["Email"]).mkdir(parents=True, exist_ok=True)
+    output_stream = open('info/' + data["Email"] + "/dak_filled.pdf", "wb")
     output.write(output_stream)
     output_stream.close()
     print("pdf generated!")
@@ -278,8 +278,8 @@ def fill_dak_sepa(data, im):
     page.mergePage(new_pdf.getPage(0))
     output.addPage(page)
     # finally, write "output" to a real file
-    Path(data["Email"]).mkdir(parents=True, exist_ok=True)
-    output_stream = open(data["Email"] + "/dak_SEPA_filled.pdf", "wb")
+    Path('info/' + data["Email"]).mkdir(parents=True, exist_ok=True)
+    output_stream = open('info/' + data["Email"] + "/dak_SEPA_filled.pdf", "wb")
     output.write(output_stream)
     output_stream.close()
     print("pdf generated!")
@@ -298,7 +298,7 @@ if __name__ == '__main__':
             'University': 'tub', 'Phone': '12345', 'Major': 't', 'StudyTime': '10.2020', 'BirthName': '',
             'OldIns': 'Nein', 'Marry': 'Nein', 'Children': 'Nein', 'Birthplace': 't', 'MoveIn': '27-09-2020',
             'PrivateName': 'Dr.Walter', 'PrivateBegin': '01-01-2020', 'PrivateEnd': '01-01-2020'}
-    fill_dak(data, im)
+    fill_dak(data)
     data = {'Email': 't@t.ty', 'IBAN': 'DE00000000000000000000', 'BIC': 'DEUTDBSTG', 'BankName': 'DEUTSCHE BANK',
             'BeginTime': '2020年10月1日', 'holder': False, 'Name': 'a,b', 'Address': '1345678', 'PLZ': '12345',
             'City': 'Beijing', 'SignCity': 'Shanghai', 'SignTime': '27-09-2020 05:31:04'}
