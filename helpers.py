@@ -52,6 +52,7 @@ def device_flow_session(client_id, auto=False):
     token_response = ctx.acquire_token_with_device_code(config.RESOURCE,
                                                         device_code,
                                                         client_id)
+    print(token_response)
     if not token_response.get('accessToken', None):
         return None
 

@@ -2,7 +2,7 @@
 # Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license.
 # See LICENSE in the project root for license information.
 import pprint
-
+import pickle
 import config
 
 from helpers import api_endpoint, device_flow_session, profile_photo, \
@@ -78,6 +78,10 @@ def sendmail_sample(session):
         pprint.pprint(send_response.json()) # show error message
 
 if __name__ == '__main__':
-    GRAPH_SESSION = device_flow_session(config.CLIENT_ID)
+    try:
+        GRAPH_SESSION = pickle.load(open('session.pkl', 'rb'))
+    except:
+        GRAPH_SESSION = device_flow_session(config.CLIENT_ID)
+        pickle.dump(GRAPH_SESSION, open('session.pkl', 'wb'))
     if GRAPH_SESSION:
         sendmail_sample(GRAPH_SESSION)
